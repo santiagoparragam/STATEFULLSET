@@ -1,6 +1,6 @@
 name: CI-MYMONGODB
 
-on: 
+on:
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -36,15 +36,12 @@ jobs:
         uses: azure/setup-helm@v3
         with:
           version: v3.12.0
-          
       - name: Log in Openshift
         uses: redhat-actions/oc-login@v1
         with:
           openshift_server_url: https://api.rm1.0a51.p1.openshiftapps.com:6443
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
-      
-
       - name: Deploy files
         run: |
-          helm show chart oci://registry-1.docker.io/cloudpirates/mongodb 
+          helm show chart oci://registry-1.docker.io/cloudpirates/mongodb
           helm upgrade my-mongodb oci://registry-1.docker.io/cloudpirates/mongodb   --reuse-values   --values my-mongodb-values.yaml
