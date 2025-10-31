@@ -31,7 +31,7 @@ jobs:
           curl -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz | tar xz
           sudo mv oc /usr/local/bin/
           oc version
-      
+          oc project santiago-parraga-dev
       - name: Install Helm
         uses: azure/setup-helm@v3
         with:
