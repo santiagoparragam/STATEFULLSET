@@ -1,0 +1,4 @@
+architecture: replicaset
+namespace: santiago-parraga-dev
+replicaCount: 3
+
